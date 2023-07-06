@@ -5,19 +5,19 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 60%;
   box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  font-weight: 400;
-  height: 100vh;
-  color: #333;
-  background-image: linear-gradient(to top right, #06005b 20%, #00b2c2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  font-family: sans-serif;
+  font-weight: 400;
+  color: #333;
+  background-image: linear-gradient(to top right, #06005b 20%, #00b2c2 100%);
 }
 
 main {
@@ -25,7 +25,7 @@ main {
   width: 100rem;
   height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.2);
   border-radius: 9px;
   overflow: hidden;
   display: flex;
@@ -106,29 +106,26 @@ main {
   cursor: pointer;
   font-weight: 400;
   transition: all 0.2s;
-
-  background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-
+  backdrop-filter: blur(20px);
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
-  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-new {
-  top: 4rem;
+.btn-reset {
+  top: 8rem;
 }
 .btn-roll {
-  top: 39.3rem;
+  top: 40rem;
 }
 .btn-hold {
-  top: 46.1rem;
+  top: 46rem;
 }
 
 .btn:active {
   transform: translate(-50%, 3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:focus {

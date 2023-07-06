@@ -1,6 +1,6 @@
 'use strict';
 
-const btnNew = document.querySelector('.btn-new');
+const btnReset = document.querySelector('.btn-reset');
 const btnRoll = document.querySelector('.btn-roll');
 const btnHold = document.querySelector('.btn-hold');
 const player0 = document.querySelector('.player-0');
@@ -10,10 +10,13 @@ const score1 = document.getElementById('score-1');
 const current0 = document.getElementById('current-0');
 const current1 = document.getElementById('current-1');
 const cube = document.querySelector('.dice');
-let scores, currentScore, activePlayer, playing;
+let count = 0;
+let currentScore = 0;
+let activePlayer = 0;
+let playing = true;
 
 const starting = function () {
-  scores = [0, 0];
+  count = [0, 0];
   currentScore = 0;
   activePlayer = 0;
   score0.textContent = 0;
@@ -29,16 +32,16 @@ const starting = function () {
 };
 starting();
 
-const switchPlayer = function () {
+const swap = function () {
   document.getElementById(`current-${activePlayer}`).textContent = 0;
   currentScore = 0;
-  activePlayer = activePlayer === 0 ? 1 : 0;
+  activePlayer = activePlayer == 0 ? 1 : 0;
   player0.classList.toggle('player-active');
   player1.classList.toggle('player-active');
 };
 
 btnRoll.addEventListener('click', function () {
-  if (playing) {
+  if (playing == true) {
     let dice = Math.trunc(Math.random() * 6) + 1;
     cube.classList.remove('hidden');
     cube.src = `dice-${dice}.png`;
@@ -47,17 +50,17 @@ btnRoll.addEventListener('click', function () {
       document.getElementById(`current-${activePlayer}`).textContent =
         currentScore;
     } else {
-      switchPlayer();
+      swap();
     }
   }
 });
 
 btnHold.addEventListener('click', function () {
-  if (playing) {
-    scores[activePlayer] += currentScore;
+  if (playing == true) {
+    count[activePlayer] += currentScore;
     document.getElementById(`score-${activePlayer}`).textContent =
-      scores[activePlayer];
-    if (scores[activePlayer] >= 100) {
+      count[activePlayer];
+    if (count[activePlayer] >= 40) {
       playing = false;
       cube.classList.add('hidden');
       document
@@ -67,9 +70,9 @@ btnHold.addEventListener('click', function () {
         .querySelector(`.player-${activePlayer}`)
         .classList.remove('player-active');
     } else {
-      switchPlayer();
+      swap();
     }
   }
 });
 
-btnNew.addEventListener('click', starting);
+btnReset.addEventListener('click', starting);
