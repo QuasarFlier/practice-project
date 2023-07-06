@@ -14,6 +14,7 @@ let count = 0;
 let currentScore = 0;
 let activePlayer = 0;
 let playing = true;
+const changeVar = true;
 
 const starting = function () {
   count = [0, 0];
